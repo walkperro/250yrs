@@ -7,7 +7,23 @@ const config: Config = {
     "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          obsidian: "#0b0b0c",
+          charcoal: "#17181b",
+          gunmetal: "#23262c",
+          gold: "#c7a46a",
+          bronze: "#8f6b3a",
+          cream: "#ece4d6",
+          rust: "#7b332d",
+        },
+      },
+      fontFamily: {
+        display: ["var(--font-cormorant)", "serif"],
+        sans: ["var(--font-geist-sans)", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

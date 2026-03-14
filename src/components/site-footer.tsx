@@ -1,0 +1,47 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-white/6 bg-black/40">
+      <div className="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr] md:items-end">
+        <div className="space-y-4">
+          <div className="flex items-center gap-4">
+            <div className="relative h-16 w-16 shrink-0">
+              <Image
+                src="/true-american-wear/logo.png"
+                alt="True American Wear logo"
+                fill
+                className="object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]"
+              />
+            </div>
+            <div>
+              <p className="font-display text-3xl text-brand-cream">
+                True American Wear
+              </p>
+              <p className="text-sm text-white/62">
+                A refined take on patriotic American apparel.
+              </p>
+            </div>
+          </div>
+
+          <p className="max-w-xl text-sm leading-6 text-white/58">
+            Heritage-inspired American apparel built for the 250th year.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-3 text-sm text-white/60 md:items-end">
+          <Link href="/shop" className="transition hover:text-brand-cream">
+            View the collection
+          </Link>
+          <Link href="/#founders-intake" className="transition hover:text-brand-cream">
+            Join the list
+          </Link>
+          <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
+            250th Year Collection
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
