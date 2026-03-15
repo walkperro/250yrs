@@ -56,15 +56,15 @@ a {
   }
 
   .section-shell {
-    @apply rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8 lg:p-10;
+    @apply rounded-[1.45rem] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8 lg:p-10;
   }
 
   .button-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-gold to-brand-bronze px-5 py-3 text-sm font-semibold text-black shadow-[0_16px_40px_rgba(143,107,58,0.35)] transition hover:brightness-105;
+    @apply inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-gold to-brand-bronze px-5 py-3 text-sm font-semibold text-black shadow-[0_16px_40px_rgba(143,107,58,0.35)] transition hover:brightness-105;
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-brand-cream transition hover:border-brand-gold hover:bg-white/10;
+    @apply inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-brand-cream transition hover:border-brand-gold hover:bg-white/10;
   }
 
   .eyebrow {
@@ -72,6 +72,6 @@ a {
   }
 
   .product-card {
-    @apply rounded-[1.8rem] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.33)] backdrop-blur-sm;
+    @apply rounded-[1.2rem] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.33)] backdrop-blur-sm;
   }
 }

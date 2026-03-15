@@ -25,23 +25,23 @@ export const campaignImages = {
 
 export const campaignGallery = [
   {
-    title: "Open-road light",
-    copy: "Sunset light, dark denim, and the eagle hoodie out in the field.",
-    image: campaignImages.heroHoodie,
+    title: "Founders at dusk",
+    copy: "The Founders Crewneck set against open field light and a darker American horizon.",
+    image: campaignImages.foundersLifestyleB,
   },
   {
-    title: "Founders in the field",
-    copy: "A clean couple frame built around the 250th Year Collection.",
-    image: campaignImages.heroCouple,
+    title: "Truckside standard",
+    copy: "The Liberty Eagle Hoodie framed with truck metal, leather, and sunset air.",
+    image: campaignImages.hoodieLifestyle,
   },
   {
-    title: "Golden-hour quiet",
-    copy: "The stronger silhouettes, worn the way they should be.",
+    title: "Open-road pair",
+    copy: "A field-worn couple frame grounded in denim, boots, and heritage weight.",
     image: campaignImages.coupleFoundersHoodie,
   },
   {
-    title: "Roadside after dark",
-    copy: "A sharper take on Americana under station light.",
+    title: "Roadside Americana",
+    copy: "Station light, clean denim, and a sharper American read after dark.",
     image: campaignImages.coupleRedlineHoodie,
   },
 ] as const;
@@ -57,7 +57,7 @@ export const lifestyleBySlug = {
   },
   "redline-250-shirt": {
     lifestyle: campaignImages.redlineLifestyle,
-    detail: campaignImages.heroCouple,
+    detail: campaignImages.coupleRedlineHoodie,
   },
   "45-47-tribute-crewneck": {
     lifestyle: campaignImages.foundersStudio,

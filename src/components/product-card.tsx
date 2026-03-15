@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { LightboxImage } from "@/components/lightbox-image";
@@ -5,18 +6,37 @@ import { formatPrice, type Product } from "@/lib/products";
 
 type ProductCardProps = {
   product: Product;
+  interactiveImage?: boolean;
+  imageSizes?: string;
 };
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({
+  product,
+  interactiveImage = true,
+  imageSizes = "(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw",
+}: ProductCardProps) {
   return (
     <article className="product-card group overflow-hidden">
       <div className="relative">
-        <LightboxImage
-          src={product.image}
-          alt={product.imageAlt}
-          containerClassName="relative aspect-[4/5] overflow-hidden rounded-[1.4rem] border border-white/8 bg-black/30"
-          imageClassName="object-cover transition duration-500 group-hover:scale-[1.03]"
-        />
+        {interactiveImage ? (
+          <LightboxImage
+            src={product.image}
+            alt={product.imageAlt}
+            sizes={imageSizes}
+            containerClassName="relative aspect-[4/5] overflow-hidden rounded-[1rem] border border-white/8 bg-black/30"
+            imageClassName="object-cover transition duration-500 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1rem] border border-white/8 bg-black/30">
+            <Image
+              src={product.image}
+              alt={product.imageAlt}
+              fill
+              sizes={imageSizes}
+              className="object-cover transition duration-500 group-hover:scale-[1.03]"
+            />
+          </div>
+        )}
         <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4">
           <span className="rounded-full border border-brand-gold/25 bg-black/55 px-3 py-1 text-[0.68rem] uppercase tracking-[0.24em] text-brand-cream/90">
             {product.badge}

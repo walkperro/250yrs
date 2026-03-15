@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FoundersIntakeForm } from "@/components/founders-intake-form";
-import { LightboxImage } from "@/components/lightbox-image";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteFooter } from "@/components/site-footer";
@@ -63,14 +62,15 @@ export default function Home() {
 
             <div className="section-shell relative min-h-[420px] overflow-hidden">
               <div className="absolute inset-0">
-                <LightboxImage
-                  src={campaignImages.heroHoodie}
-                  alt="True American Wear hero image"
+                <Image
+                  src={campaignImages.foundersLifestyleB}
+                  alt="Founders 1776 Crewneck worn in open field at dusk"
+                  fill
                   priority
-                  containerClassName="relative h-full w-full"
-                  imageClassName="object-cover opacity-60"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center opacity-68"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-obsidian via-brand-obsidian/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-obsidian via-brand-obsidian/30 to-transparent" />
               </div>
 
               <div className="relative flex h-full flex-col justify-end gap-4">
@@ -97,6 +97,7 @@ export default function Home() {
                     src="/true-american-wear/logo.png"
                     alt="True American Wear crest"
                     fill
+                    sizes="208px"
                     className="object-contain drop-shadow-[0_18px_44px_rgba(0,0,0,0.55)]"
                   />
                 </div>
@@ -114,12 +115,15 @@ export default function Home() {
                   black-and-bronze palette shape the world around the collection.
                 </p>
               </div>
-              <LightboxImage
-                src={campaignImages.heroCouple}
-                alt="True American Wear lifestyle image"
-                containerClassName="relative min-h-[220px] overflow-hidden rounded-[1.4rem] border border-white/8"
-                imageClassName="object-cover"
-              />
+              <div className="relative min-h-[240px] overflow-hidden rounded-[1.05rem] border border-white/8">
+                <Image
+                  src={campaignImages.hoodieLifestyle}
+                  alt="Liberty Eagle Hoodie beside vintage truck"
+                  fill
+                  sizes="(min-width: 640px) 38vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -134,16 +138,19 @@ export default function Home() {
 
             <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
               <div className="section-shell relative overflow-hidden">
-                <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-                  <LightboxImage
-                    src={campaignImages.foundersLifestyleA}
-                    alt="Founders 1776 Crewneck in campaign light"
-                    containerClassName="relative min-h-[360px] overflow-hidden rounded-[1.6rem] border border-white/8 bg-black/30"
-                    imageClassName="object-cover"
-                  />
+                <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+                  <div className="relative min-h-[360px] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/30">
+                    <Image
+                      src={leadProduct.image}
+                      alt={leadProduct.imageAlt}
+                      fill
+                      sizes="(min-width: 1280px) 34vw, (min-width: 1024px) 48vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
 
-                  <div className="space-y-5">
-                    <div className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-5">
+                  <div className="grid gap-4">
+                    <div className="rounded-[1.05rem] border border-white/8 bg-white/[0.03] p-5">
                       <p className="eyebrow">Lead piece</p>
                       <h3 className="mt-2 font-display text-3xl text-brand-cream">
                         {leadProduct.name}
@@ -154,7 +161,7 @@ export default function Home() {
                     </div>
 
                     <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-5">
+                      <div className="rounded-[1.05rem] border border-white/8 bg-white/[0.03] p-5">
                         <p className="eyebrow">Price</p>
                         <p className="mt-2 text-3xl font-semibold text-brand-cream">
                           {formatPrice(leadProduct.price)}
@@ -163,7 +170,7 @@ export default function Home() {
                           Heavyweight fleece with a cleaner front read.
                         </p>
                       </div>
-                      <div className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-5">
+                      <div className="rounded-[1.05rem] border border-white/8 bg-white/[0.03] p-5">
                         <p className="eyebrow">Why it leads</p>
                         <p className="mt-2 text-sm leading-6 text-white/64">
                           Dark base, stronger shape, and a more premium read from
@@ -172,19 +179,26 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <LightboxImage
-                      src={campaignImages.foundersStudio}
-                      alt="Founders 1776 Crewneck studio view"
-                      containerClassName="relative min-h-[220px] overflow-hidden rounded-[1.4rem] border border-white/8 bg-black/30"
-                      imageClassName="object-cover"
-                    />
+                    <div className="relative min-h-[220px] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/30">
+                      <Image
+                        src={campaignImages.foundersStudio}
+                        alt="Founders 1776 Crewneck studio campaign image"
+                        fill
+                        sizes="(min-width: 1280px) 24vw, (min-width: 1024px) 38vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="grid gap-6 xl:grid-cols-1">
+              <div className="grid gap-6">
                 {featuredProducts.map((product) => (
-                  <ProductCard key={product.slug} product={product} />
+                  <ProductCard
+                    key={product.slug}
+                    product={product}
+                    interactiveImage={false}
+                  />
                 ))}
               </div>
             </div>
@@ -195,25 +209,34 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="section-shell relative overflow-hidden">
               <div className="grid gap-4 sm:grid-cols-[1.05fr_0.95fr]">
-                <LightboxImage
-                  src="/true-american-wear/flag-sweater.jpg"
-                  alt="Founders 1776 Crewneck product view"
-                  containerClassName="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-white/8 bg-black/40"
-                  imageClassName="object-cover"
-                />
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/40">
+                  <Image
+                    src="/true-american-wear/flag-sweater.jpg"
+                    alt="Founders 1776 Crewneck product view"
+                    fill
+                    sizes="(min-width: 1024px) 30vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="grid gap-4">
-                  <LightboxImage
-                    src={campaignImages.foundersDetail}
-                    alt="Founders 1776 Crewneck detail view"
-                    containerClassName="relative min-h-[170px] overflow-hidden rounded-[1.3rem] border border-white/8 bg-black/30"
-                    imageClassName="object-cover"
-                  />
-                  <LightboxImage
-                    src={campaignImages.foundersLifestyleB}
-                    alt="Founders 1776 Crewneck in the field"
-                    containerClassName="relative min-h-[170px] overflow-hidden rounded-[1.3rem] border border-white/8 bg-black/30"
-                    imageClassName="object-cover"
-                  />
+                  <div className="relative min-h-[170px] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/30">
+                    <Image
+                      src={campaignImages.foundersDetail}
+                      alt="Founders 1776 Crewneck detail view"
+                      fill
+                      sizes="(min-width: 1024px) 18vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative min-h-[170px] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/30">
+                    <Image
+                      src={campaignImages.foundersLifestyleA}
+                      alt="Founders 1776 Crewneck worn in late light"
+                      fill
+                      sizes="(min-width: 1024px) 18vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -229,7 +252,7 @@ export default function Home() {
                 apparel.
               </p>
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-5">
+                <div className="rounded-[1.05rem] border border-white/8 bg-white/[0.03] p-5">
                   <p className="eyebrow">Price</p>
                   <p className="mt-2 text-3xl font-semibold text-brand-cream">
                     {formatPrice(leadProduct.price)}
@@ -238,7 +261,7 @@ export default function Home() {
                     Heavyweight fleece with a clean front read.
                   </p>
                 </div>
-                <div className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-5">
+                <div className="rounded-[1.05rem] border border-white/8 bg-white/[0.03] p-5">
                   <p className="eyebrow">Why it leads</p>
                   <p className="mt-2 text-sm leading-6 text-white/64">
                     It carries the brand at first glance: dark base, stronger
@@ -253,7 +276,7 @@ export default function Home() {
                 ].map((line) => (
                   <div
                     key={line}
-                    className="rounded-[1.4rem] border border-white/8 bg-black/20 p-5"
+                    className="rounded-[1.05rem] border border-white/8 bg-black/20 p-5"
                   >
                     <p className="text-sm leading-6 text-white/64">{line}</p>
                   </div>
@@ -275,14 +298,17 @@ export default function Home() {
               description="The brand story stays dark, clean, and grounded in American utility."
             />
 
-            <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-              <div className="overflow-hidden rounded-[1.8rem] border border-white/8 bg-white/[0.03]">
-                <LightboxImage
-                  src={campaignSpotlight.image}
-                  alt={campaignSpotlight.title}
-                  containerClassName="relative min-h-[360px] overflow-hidden"
-                  imageClassName="object-cover"
-                />
+            <div className="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
+              <div className="overflow-hidden rounded-[1.15rem] border border-white/8 bg-white/[0.03]">
+                <div className="relative min-h-[380px] overflow-hidden">
+                  <Image
+                    src={campaignSpotlight.image}
+                    alt={campaignSpotlight.title}
+                    fill
+                    sizes="(min-width: 1280px) 42vw, (min-width: 768px) 60vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="space-y-3 p-6">
                   <p className="eyebrow">Campaign spotlight</p>
                   <h3 className="font-display text-3xl text-brand-cream sm:text-4xl">
@@ -295,26 +321,27 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-2">
+              <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1">
                 {campaignCards.map((frame) => (
                   <div
                     key={frame.title}
-                    className="overflow-hidden rounded-[1.7rem] border border-white/8 bg-white/[0.03]"
+                    className="overflow-hidden rounded-[1.1rem] border border-white/8 bg-white/[0.03]"
                   >
-                    <LightboxImage
-                      src={frame.image}
-                      alt={frame.title}
-                      containerClassName="relative aspect-[4/5] overflow-hidden"
-                      imageClassName="object-cover"
-                    />
+                    <div className="relative aspect-[4/5] overflow-hidden md:aspect-[5/6] xl:aspect-[4/5]">
+                      <Image
+                        src={frame.image}
+                        alt={frame.title}
+                        fill
+                        sizes="(min-width: 1280px) 26vw, (min-width: 768px) 32vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="space-y-2 p-5">
                       <p className="eyebrow">True American Wear</p>
                       <h3 className="font-display text-2xl text-brand-cream">
                         {frame.title}
                       </h3>
-                      <p className="text-sm leading-6 text-white/64">
-                        {frame.copy}
-                      </p>
+                      <p className="text-sm leading-6 text-white/64">{frame.copy}</p>
                     </div>
                   </div>
                 ))}
@@ -339,13 +366,14 @@ export default function Home() {
                   <Link
                     key={product.slug}
                     href={`/shop/${product.slug}`}
-                    className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-4 transition hover:border-brand-gold/25 hover:bg-white/[0.05]"
+                    className="rounded-[1.05rem] border border-white/8 bg-white/[0.03] p-4 transition hover:border-brand-gold/25 hover:bg-white/[0.05]"
                   >
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-[1.2rem]">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-[0.95rem]">
                       <Image
                         src={product.image}
                         alt={product.imageAlt}
                         fill
+                        sizes="(min-width: 1024px) 18vw, (min-width: 640px) 24vw, 100vw"
                         className="object-cover"
                       />
                     </div>
@@ -361,25 +389,34 @@ export default function Home() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <LightboxImage
-                src={campaignImages.hoodieStudio}
-                alt="Liberty Eagle Hoodie studio view"
-                containerClassName="relative min-h-[230px] overflow-hidden rounded-[1.5rem] border border-white/8 bg-black/30 sm:min-h-[320px]"
-                imageClassName="object-cover"
-              />
+              <div className="relative min-h-[230px] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/30 sm:min-h-[320px]">
+                <Image
+                  src="/true-american-wear/eagle-hoodie.jpg"
+                  alt="Liberty Eagle Hoodie product image"
+                  fill
+                  sizes="(min-width: 1024px) 28vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="grid gap-4">
-                <LightboxImage
-                  src={campaignImages.redlineLifestyle}
-                  alt="Redline 250 Shirt lifestyle image"
-                  containerClassName="relative min-h-[150px] overflow-hidden rounded-[1.4rem] border border-white/8 bg-black/30"
-                  imageClassName="object-cover"
-                />
-                <LightboxImage
-                  src={campaignImages.hoodieLifestyle}
-                  alt="Liberty Eagle Hoodie lifestyle image"
-                  containerClassName="relative min-h-[150px] overflow-hidden rounded-[1.4rem] border border-white/8 bg-black/30"
-                  imageClassName="object-cover"
-                />
+                <div className="relative min-h-[150px] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/30">
+                  <Image
+                    src="/true-american-wear/red-stripes-shirt.jpg"
+                    alt="Redline 250 Shirt product image"
+                    fill
+                    sizes="(min-width: 1024px) 18vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative min-h-[150px] overflow-hidden rounded-[1.05rem] border border-white/8 bg-black/30">
+                  <Image
+                    src={campaignImages.coupleRedlineHoodie}
+                    alt="Roadside Americana black couple campaign image"
+                    fill
+                    sizes="(min-width: 1024px) 18vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
