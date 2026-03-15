@@ -26,23 +26,27 @@ export const campaignImages = {
 export const campaignGallery = [
   {
     title: "Founders at dusk",
-    copy: "The Founders Crewneck set against open field light and a darker American horizon.",
+    copy: "A lone walk through late field light with the Founders Crewneck carrying the frame.",
     image: campaignImages.foundersLifestyleB,
+    imageClassName: "object-cover object-[center_24%]",
   },
   {
     title: "Truckside standard",
-    copy: "The Liberty Eagle Hoodie framed with truck metal, leather, and sunset air.",
+    copy: "The eagle hoodie against truck metal, leather boots, and the last light of the day.",
     image: campaignImages.hoodieLifestyle,
-  },
-  {
-    title: "Open-road pair",
-    copy: "A field-worn couple frame grounded in denim, boots, and heritage weight.",
-    image: campaignImages.coupleFoundersHoodie,
+    imageClassName: "object-cover object-[center_18%]",
   },
   {
     title: "Roadside Americana",
-    copy: "Station light, clean denim, and a sharper American read after dark.",
+    copy: "A Black couple under station light in clean denim and sharper patriotic graphics.",
     image: campaignImages.coupleRedlineHoodie,
+    imageClassName: "object-cover object-[center_18%]",
+  },
+  {
+    title: "Pasture walk",
+    copy: "A couple moving through open pasture in boots, field dust, and cooler evening air.",
+    image: campaignImages.coupleFoundersHoodie,
+    imageClassName: "object-cover object-[center_20%]",
   },
 ] as const;
 
