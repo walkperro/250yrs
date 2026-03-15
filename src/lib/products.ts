@@ -27,7 +27,7 @@ export const products: Product[] = [
       "Heavyweight black fleece finished with a bold flag sweep and distressed anniversary graphic.",
     description:
       "A structured black crewneck with a strong shoulder, brushed interior, and a front graphic built to carry the 250th year with weight and presence.",
-    badge: "Lead product",
+    badge: "Featured piece",
     releaseNote: "Limited collection.",
     materials: [
       "14 oz brushed fleece",
@@ -52,7 +52,7 @@ export const products: Product[] = [
       "Heather gray fleece with eagle artwork, heritage numerals, and a strong hood lining.",
     description:
       "Heather gray fleece with a broad-wing eagle graphic, 1776 to 2026 lettering, and a hood lined to carry the piece from front to back.",
-    badge: "Core piece",
+    badge: "Collection essential",
     releaseNote: "Core collection staple.",
     materials: ["Heavy fleece hoodie body", "Double-layer hood", "Front pouch pocket"],
     details: ["Graphic-led statement piece", "Drawcord hood closure", "Soft brushed hand feel"],

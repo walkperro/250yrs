@@ -20,13 +20,13 @@ export function SiteFooter() {
                 True American Wear
               </p>
               <p className="text-sm text-white/62">
-                A refined take on patriotic American apparel.
+                Patriotic apparel built for the 250th year.
               </p>
             </div>
           </div>
 
           <p className="max-w-xl text-sm leading-6 text-white/58">
-            Heritage-inspired American apparel built for the 250th year.
+            Celebrating America’s 250th anniversary with patriotic apparel.
           </p>
         </div>
 

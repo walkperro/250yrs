@@ -20,7 +20,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "True American Wear",
-  description: "Premium Americana apparel built for the 250th year.",
+  description: "Patriotic apparel built to celebrate America’s 250th anniversary.",
 };
 
 export default function RootLayout({

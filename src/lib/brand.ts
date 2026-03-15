@@ -1,9 +1,9 @@
 export const brand = {
   name: "True American Wear",
   collectionName: "250th Year Collection",
-  tagline: "Premium Americana for the 250th year.",
+  tagline: "Built for the 250th year.",
   description:
-    "True American Wear builds heritage-inspired American apparel around classic symbols, heavyweight fabrics, and a darker American palette.",
+    "True American Wear makes patriotic apparel to celebrate America’s 250th anniversary.",
   palette: {
     obsidian: "#0b0b0c",
     charcoal: "#17181b",
