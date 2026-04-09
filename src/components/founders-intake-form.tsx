@@ -116,11 +116,6 @@ export function FoundersIntakeForm({
           <button type="submit" className="button-primary" disabled={disabled || !name || !email}>
             Join now
           </button>
-          <p className="text-xs leading-5 text-white/52">
-            {disabled
-              ? "Set NEXT_PUBLIC_WAITLIST_EMAIL to enable list capture."
-              : `Currently routed to ${inbox}.`}
-          </p>
         </div>
       </form>
     </div>

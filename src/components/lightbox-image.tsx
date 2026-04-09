@@ -53,7 +53,7 @@ export function LightboxImage({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className={`${containerClassName} cursor-zoom-in text-left transition duration-300 hover:brightness-105`}
+        className={`${containerClassName} block w-full cursor-zoom-in text-left transition duration-300 hover:brightness-105`}
         aria-label={`Open larger view of ${alt}`}
       >
         <Image

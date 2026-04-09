@@ -60,13 +60,13 @@ export default function Home() {
             <div className="section-shell relative min-h-[500px] overflow-hidden p-0 sm:min-h-[540px]">
               <div className="absolute inset-0 overflow-hidden">
                 <Image
-                  src={campaignImages.heroHoodie}
-                  alt="Liberty Eagle Hoodie campaign hero image"
+                  src={campaignImages.foundersLifestyleB}
+                  alt="Woman wearing the Founders 1776 Crewneck walking down the road at sunset"
                   fill
                   priority
                   quality={94}
                   sizes="(min-width: 1280px) 44vw, (min-width: 1024px) 48vw, 100vw"
-                  className="scale-[1.08] object-cover object-[center_18%] opacity-80"
+                  className="object-cover object-center opacity-80"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,11,12,0.16)_0%,rgba(11,11,12,0.28)_34%,rgba(11,11,12,0.84)_100%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(236,228,214,0.08),transparent_34%)]" />
@@ -142,12 +142,12 @@ export default function Home() {
                 <div className="grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">
                   <div className="relative min-h-[420px] overflow-hidden rounded-[1rem] border border-white/8 bg-black/30">
                     <Image
-                      src={campaignImages.foundersLifestyleB}
-                      alt="Woman wearing the Founders 1776 Crewneck walking in sunlight"
+                      src={campaignImages.heroHoodie}
+                      alt="Model wearing the Liberty Eagle Hoodie beside a black truck"
                       fill
                       quality={94}
                       sizes="(min-width: 1280px) 38vw, (min-width: 1024px) 46vw, 100vw"
-                      className="object-cover object-[center_22%]"
+                      className="object-cover object-[center_18%]"
                     />
                   </div>
 

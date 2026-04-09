@@ -20,7 +20,7 @@ export const products: Product[] = [
     name: "Founders 1776 Crewneck",
     shortName: "1776 Crewneck",
     subtitle: "Black 250 Years crewneck",
-    price: 118,
+    price: 150,
     image: "/true-american-wear/flag-sweater.jpg",
     imageAlt: "Black 1776 250 Years 2026 crewneck with sweeping flag graphic.",
     cardDescription:
@@ -45,7 +45,7 @@ export const products: Product[] = [
     name: "Liberty Eagle Hoodie",
     shortName: "Eagle Hoodie",
     subtitle: "Gray 250 Years eagle hoodie",
-    price: 128,
+    price: 250,
     image: "/true-american-wear/eagle-hoodie.jpg",
     imageAlt: "Gray hoodie with 1776 2026 eagle artwork and 250 Years text.",
     cardDescription:
@@ -62,7 +62,7 @@ export const products: Product[] = [
     name: "Redline 250 Shirt",
     shortName: "Redline Shirt",
     subtitle: "Red striped 250 Years shirt",
-    price: 78,
+    price: 85,
     image: "/true-american-wear/red-stripes-shirt.jpg",
     imageAlt: "Red and white striped 250 Years shirt with 1776 and 2026 text.",
     cardDescription:
@@ -76,17 +76,17 @@ export const products: Product[] = [
   },
   {
     slug: "45-47-tribute-crewneck",
-    name: "45 / 47 Tribute Crewneck",
+    name: "Trump Nobel Peace Prize Sweater",
     shortName: "45 / 47 Crewneck",
     subtitle: "Additional statement patriotic crewneck",
-    price: 112,
-    image: "/true-american-wear/trump-sweater.jpg",
+    price: 150,
+    image: "/true-american-wear/nobel-peace-sweater.jpg",
     imageAlt: "Gray tribute crewneck with 45 47 patriotic graphic.",
     cardDescription:
       "A niche statement graphic reserved for customers who want the most direct commemorative piece.",
     description:
-      "A limited-run gray crewneck positioned as a narrower statement piece within the collection.",
-    badge: "Lower priority",
+      "A statement piece honoring our President's leadership, strength, and the conversation around him deserving a Nobel Peace Prize.",
+    badge: "Statement Piece",
     releaseNote: "Limited-run statement piece.",
     materials: ["Midweight fleece", "Large front commemorative graphic", "Soft rib finishes"],
     details: ["Secondary product slot", "Intentional limited placement", "Merchandised below the core assortment"],
