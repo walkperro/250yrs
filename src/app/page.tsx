@@ -46,9 +46,9 @@ export default function Home() {
 
               <div className="mt-8 grid gap-3 border-t border-white/8 pt-5 sm:grid-cols-3">
                 {[
-                  "12-ounce fleece, rib trim, and a cleaner drape.",
-                  "Built for fireworks at dusk and colder mornings after.",
-                  "Made to wear with dark denim, boots, and a work jacket.",
+                  "Heavyweight fleece with a structured fit and clean finish.",
+                  "Built for cool nights, early mornings, and everyday wear.",
+                  "Pairs easy with denim, boots, or a work jacket.",
                 ].map((line) => (
                   <p key={line} className="text-sm leading-6 text-white/60">
                     {line}
@@ -111,8 +111,8 @@ export default function Home() {
                   {brand.tagline}
                 </h3>
                 <p className="text-sm leading-7 text-white/68 sm:text-base">
-                  {brand.description} Leather, metal, countryside light, and a
-                  classic details shape the look of the brand.
+                  {brand.description} Built with durable materials, clean lines,
+                  and a classic American feel.
                 </p>
               </div>
               <div className="relative min-h-[312px] overflow-hidden rounded-[1rem] border border-white/8">
@@ -133,8 +133,8 @@ export default function Home() {
           <div className="space-y-8">
             <SectionHeading
               eyebrow="Featured collection"
-              title="The 250th Year Collection starts with the strongest silhouettes."
-              description="Founders up front. The Eagle Hoodie brings weight. The Redline Shirt adds a lighter summer read."
+              title="The 250th Year Collection starts with the pieces that stand out most."
+              description="Start with the Founders Crewneck, layer in the Eagle Hoodie, and finish with the Redline Shirt for warmer days."
             />
 
             <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">

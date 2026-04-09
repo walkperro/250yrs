@@ -25,6 +25,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   const supportingAssets = lifestyleBySlug[slug as keyof typeof lifestyleBySlug];
+  const showDetailCards = slug !== "founders-1776-crewneck";
 
   return (
     <>
@@ -78,71 +79,75 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </p>
               </div>
 
-              <div className="rounded-[1.6rem] border border-white/8 bg-white/5 p-5">
-                <p className="text-xs uppercase tracking-[0.24em] text-brand-gold/70">
-                  Sizes
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {["S", "M", "L", "XL", "XXL"].map((size) => (
-                    <button
-                      key={size}
-                      type="button"
-                      className="rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm text-white/80 transition hover:border-brand-gold/35 hover:text-brand-cream"
-                    >
-                      {size}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              {showDetailCards ? (
+                <>
+                  <div className="rounded-[1.6rem] border border-white/8 bg-white/5 p-5">
+                    <p className="text-xs uppercase tracking-[0.24em] text-brand-gold/70">
+                      Sizes
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {["S", "M", "L", "XL", "XXL"].map((size) => (
+                        <button
+                          key={size}
+                          type="button"
+                          className="rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm text-white/80 transition hover:border-brand-gold/35 hover:text-brand-cream"
+                        >
+                          {size}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
 
-              <FoundersIntakeForm
-                productName={product.name}
-                title="Join the list for this piece"
-                description="Claim early access and first notice when this release lands."
-              />
+                  <FoundersIntakeForm
+                    productName={product.name}
+                    title="Join the list for this piece"
+                    description="Claim early access and first notice when this release lands."
+                  />
 
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
-                    Release
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-white/72">
-                    {product.releaseNote}
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
-                    Built for
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-white/72">
-                    A darker American wardrobe with stronger graphics, cleaner
-                    lines, and heavier textures.
-                  </p>
-                </div>
-              </div>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
+                      <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
+                        Release
+                      </p>
+                      <p className="mt-3 text-sm leading-6 text-white/72">
+                        {product.releaseNote}
+                      </p>
+                    </div>
+                    <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
+                      <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
+                        Built for
+                      </p>
+                      <p className="mt-3 text-sm leading-6 text-white/72">
+                        A darker American wardrobe with stronger graphics, cleaner
+                        lines, and heavier textures.
+                      </p>
+                    </div>
+                  </div>
 
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
-                    Materials
-                  </p>
-                  <ul className="mt-3 space-y-2 text-sm leading-6 text-white/72">
-                    {product.materials.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
-                    Details
-                  </p>
-                  <ul className="mt-3 space-y-2 text-sm leading-6 text-white/72">
-                    {product.details.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
+                      <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
+                        Materials
+                      </p>
+                      <ul className="mt-3 space-y-2 text-sm leading-6 text-white/72">
+                        {product.materials.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">
+                      <p className="text-xs uppercase tracking-[0.22em] text-brand-gold/70">
+                        Details
+                      </p>
+                      <ul className="mt-3 space-y-2 text-sm leading-6 text-white/72">
+                        {product.details.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              ) : null}
             </div>
           </div>
         </section>
