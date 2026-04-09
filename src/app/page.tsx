@@ -152,7 +152,7 @@ export default function Home() {
                   </div>
 
                   <div className="grid gap-4">
-                    <div className="rounded-[1rem] border border-white/8 bg-white/[0.03] p-5">
+                    <div className="p-1">
                       <p className="eyebrow">Featured piece</p>
                       <h3 className="mt-2 font-display text-3xl text-brand-cream">
                         {leadProduct.name}
@@ -163,7 +163,7 @@ export default function Home() {
                     </div>
 
                     <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="rounded-[1rem] border border-white/8 bg-white/[0.03] p-5">
+                      <div className="p-1">
                         <p className="eyebrow">Price</p>
                         <p className="mt-2 text-3xl font-semibold text-brand-cream">
                           {formatPrice(leadProduct.price)}
@@ -172,7 +172,7 @@ export default function Home() {
                           Heavyweight fleece with a cleaner front read.
                         </p>
                       </div>
-                      <div className="rounded-[1rem] border border-white/8 bg-white/[0.03] p-5">
+                      <div className="p-1">
                         <p className="eyebrow">Fabric & finish</p>
                         <p className="mt-2 text-sm leading-6 text-white/64">
                           Brushed interior fleece, firm rib trim, and structure
@@ -181,7 +181,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="relative min-h-[250px] overflow-hidden rounded-[1rem] border border-white/8 bg-black/30">
+                    <div className="relative min-h-[250px] overflow-hidden">
                       <Image
                         src={campaignImages.foundersStudio}
                         alt="Founders 1776 Crewneck studio campaign image"
@@ -217,8 +217,8 @@ export default function Home() {
           <div className="section-shell space-y-8 p-4 sm:space-y-9 sm:p-5 lg:p-6">
             <SectionHeading
               eyebrow="The campaign"
-              title="Roadside light, pasture wind, and the last hour before dark."
-              description="Four frames that keep the brand grounded in denim, truck metal, field dust, and station glow."
+              title="Late light. Open road. Built to wear anywhere."
+              description="This campaign shows how the collection is meant to be worn — out on the road, in denim, and through the last light of the day."
             />
 
             <div className="grid gap-6 xl:grid-cols-[1.14fr_0.86fr]">
