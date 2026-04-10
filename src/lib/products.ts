@@ -1,3 +1,16 @@
+import type { CSSProperties } from "react";
+
+export type ProductGalleryImage = {
+  src: string;
+  alt: string;
+};
+
+export type ProductCardGalleryImage = ProductGalleryImage & {
+  className?: string;
+  itemClassName?: string;
+  itemStyle?: CSSProperties;
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -12,12 +25,14 @@ export type Product = {
   releaseNote: string;
   materials: string[];
   details: string[];
+  kind?: "standard" | "set";
   seoTitle?: string;
   seoDescription?: string;
-  gallery?: Array<{
-    src: string;
-    alt: string;
-  }>;
+  gallery?: ProductGalleryImage[];
+  bundleCardTitle?: string;
+  bundleCardAccent?: string;
+  bundleCardDescription?: string[];
+  bundleCardImages?: ProductCardGalleryImage[];
 };
 
 export const products: Product[] = [
@@ -154,9 +169,164 @@ export const products: Product[] = [
       },
     ],
   },
+  {
+    slug: "jacket-boots",
+    name: "Jacket + Boots",
+    shortName: "Jacket + Boots Set",
+    subtitle: "Heritage outerwear and boot set",
+    price: 1500,
+    image: "/campaign/true-american-wear/jacket-boots-set-product.jpg",
+    imageAlt: "Jacket and boots set product image.",
+    cardDescription:
+      "A premium heritage jacket and leather boots paired together as a complete 250th year set.",
+    description:
+      "A premium set pairing the heritage jacket with leather boots for a complete look built with stronger texture, clean structure, and elevated Americana styling.",
+    badge: "Featured set",
+    releaseNote: "Limited-run numbered set.",
+    materials: ["Structured heritage jacket", "Premium leather boots", "Built as a matched set"],
+    details: ["Includes jacket and boots", "10 year warranty", "Numbered set release"],
+    kind: "set",
+    seoTitle: "Jacket + Boots",
+    seoDescription:
+      "Shop the Jacket + Boots set from True American Wear, a premium Americana pairing built around a heritage jacket and leather boots.",
+    gallery: [
+      {
+        src: "/campaign/true-american-wear/jacket-boots-set-product.jpg",
+        alt: "Jacket + Boots set product image.",
+      },
+      {
+        src: "/campaign/true-american-wear/jacket-boots-woman-editorial.jpg",
+        alt: "Blonde woman styled in the Jacket + Boots set",
+      },
+      {
+        src: "/campaign/true-american-wear/jacket-boots-harley-editorial.jpg",
+        alt: "Blonde woman styled in the Jacket + Boots set beside a motorcycle",
+      },
+    ],
+    bundleCardTitle: "Buy the Set",
+    bundleCardAccent: "Featured set",
+    bundleCardDescription: [
+      "Only 200,000 made in the world.",
+      "10 year warranty.",
+      "Each set comes with its own patriot number.",
+    ],
+    bundleCardImages: [
+      {
+        src: "/true-american-wear/jacket.jpg",
+        alt: "Premium heritage jacket from the 250th year collection.",
+      },
+      {
+        src: "/true-american-wear/boots.jpg",
+        alt: "Premium leather boots from the 250th year collection.",
+        itemStyle: { backgroundColor: "#d0c7bf" },
+        className:
+          "object-contain object-center scale-[1.12] p-1 transition duration-500 group-hover:scale-[1.15]",
+      },
+    ],
+  },
+  {
+    slug: "founders-crewneck-1776-shoes-white",
+    name: "Founders Crewneck 1776 + Shoes (White)",
+    shortName: "Founders White Set",
+    subtitle: "White crewneck and shoes set",
+    price: 350,
+    image: "/campaign/true-american-wear/founders-white-set-product.jpg",
+    imageAlt: "Founders white crewneck and shoes set product image.",
+    cardDescription:
+      "A clean white set pairing the Founders Crewneck 1776 with matching footwear for a full 250th year look.",
+    description:
+      "A white set built around the Founders Crewneck 1776 and matching shoes, designed to bring a brighter, more elevated finish to the 250th Year Collection.",
+    badge: "Bundle offer",
+    releaseNote: "Limited bundle release.",
+    materials: ["White Founders 1776 crewneck", "Matching white shoes", "Coordinated set styling"],
+    details: ["Includes crewneck and shoes", "Clean full-look pairing", "Built for standout contrast"],
+    kind: "set",
+    seoTitle: "Founders Crewneck 1776 + Shoes (White)",
+    seoDescription:
+      "Shop the Founders Crewneck 1776 + Shoes (White) set from True American Wear, a premium white crewneck and shoe pairing built for the 250th Year Collection.",
+    gallery: [
+      {
+        src: "/campaign/true-american-wear/founders-white-set-product.jpg",
+        alt: "Founders Crewneck 1776 + Shoes (White) set product image.",
+      },
+      {
+        src: "/campaign/true-american-wear/founders-white-solo-editorial.jpg",
+        alt: "White model wearing the Founders Crewneck 1776 + Shoes (White) set",
+      },
+      {
+        src: "/campaign/true-american-wear/founders-white-couple-editorial.jpg",
+        alt: "White couple featuring the Founders Crewneck 1776 + Shoes (White) set",
+      },
+    ],
+    bundleCardTitle: "Buy the Set",
+    bundleCardAccent: "Bundle offer",
+    bundleCardDescription: ["Only 100,000 made in the world."],
+    bundleCardImages: [
+      {
+        src: "/true-american-wear/flag-sweater-white.jpg",
+        alt: "White Founders 1776 Crewneck with flag graphic.",
+      },
+      {
+        src: "/true-american-wear/shoes-white.jpg",
+        alt: "White shoes paired with the Founders set.",
+      },
+    ],
+  },
+  {
+    slug: "founders-crewneck-1776-shoes-black",
+    name: "Founders Crewneck 1776 + Shoes (Black)",
+    shortName: "Founders Black Set",
+    subtitle: "Black crewneck and shoes set",
+    price: 350,
+    image: "/campaign/true-american-wear/founders-black-set-product.jpg",
+    imageAlt: "Founders black crewneck and shoes set product image.",
+    cardDescription:
+      "A darker Founders set pairing the black crewneck with matching shoes for a complete 250th year look.",
+    description:
+      "A black set built around the Founders Crewneck 1776 and matching shoes, styled to deliver a complete heritage look with stronger contrast and structure.",
+    badge: "Bundle offer",
+    releaseNote: "Limited bundle release.",
+    materials: ["Black Founders 1776 crewneck", "Matching black shoes", "Coordinated set styling"],
+    details: ["Includes crewneck and shoes", "Built as a full-look set", "Made for a stronger heritage finish"],
+    kind: "set",
+    seoTitle: "Founders Crewneck 1776 + Shoes (Black)",
+    seoDescription:
+      "Shop the Founders Crewneck 1776 + Shoes (Black) set from True American Wear, a premium black crewneck and shoe pairing built for the 250th Year Collection.",
+    gallery: [
+      {
+        src: "/campaign/true-american-wear/founders-black-set-product.jpg",
+        alt: "Founders Crewneck 1776 + Shoes (Black) set product image.",
+      },
+      {
+        src: "/campaign/true-american-wear/founders-black-solo-editorial.jpg",
+        alt: "Model wearing the Founders Crewneck 1776 + Shoes (Black) set",
+      },
+      {
+        src: "/campaign/true-american-wear/founders-black-couple-editorial.jpg",
+        alt: "Cuban couple featuring the Founders Crewneck 1776 + Shoes (Black) set",
+      },
+    ],
+    bundleCardTitle: "Buy the Set",
+    bundleCardAccent: "Bundle offer",
+    bundleCardDescription: ["Only 100,000 made in the world."],
+    bundleCardImages: [
+      {
+        src: "/true-american-wear/flag-sweater.jpg",
+        alt: "Black Founders 1776 Crewneck with flag graphic.",
+      },
+      {
+        src: "/true-american-wear/shoes-black.jpg",
+        alt: "Black footwear paired with the Founders set.",
+      },
+    ],
+  },
 ];
 
-export const featuredProducts = products.slice(0, 3);
+export const standardProducts = products.filter((product) => product.kind !== "set");
+
+export const setProducts = products.filter((product) => product.kind === "set");
+
+export const featuredProducts = standardProducts.slice(0, 3);
 
 export function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug);

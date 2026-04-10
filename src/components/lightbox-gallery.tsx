@@ -32,6 +32,8 @@ export function LightboxGallery({
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const openerRef = useRef<HTMLButtonElement | null>(null);
   const touchStartX = useRef<number | null>(null);
+  const closeTimeoutRef = useRef<number | null>(null);
+  const openTimeoutRef = useRef<number | null>(null);
 
   const isOpen = openIndex !== null;
 
@@ -58,9 +60,15 @@ export function LightboxGallery({
 
   const closeGallery = useCallback(() => {
     setVisible(false);
-    window.setTimeout(() => {
+
+    if (closeTimeoutRef.current) {
+      window.clearTimeout(closeTimeoutRef.current);
+    }
+
+    closeTimeoutRef.current = window.setTimeout(() => {
       setOpenIndex(null);
       openerRef.current?.focus();
+      closeTimeoutRef.current = null;
     }, 180);
   }, []);
 
@@ -85,12 +93,23 @@ export function LightboxGallery({
 
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
-    window.setTimeout(() => {
+    openTimeoutRef.current = window.setTimeout(() => {
       setVisible(true);
       closeButtonRef.current?.focus();
+      openTimeoutRef.current = null;
     }, 10);
 
     return () => {
+      if (openTimeoutRef.current) {
+        window.clearTimeout(openTimeoutRef.current);
+        openTimeoutRef.current = null;
+      }
+
+      if (closeTimeoutRef.current) {
+        window.clearTimeout(closeTimeoutRef.current);
+        closeTimeoutRef.current = null;
+      }
+
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
@@ -130,7 +149,11 @@ export function LightboxGallery({
           className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/88 px-3 py-4 backdrop-blur-sm transition duration-200 sm:px-6 sm:py-8 ${
             visible ? "opacity-100" : "opacity-0"
           }`}
-          onClick={closeGallery}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              closeGallery();
+            }
+          }}
           role="dialog"
           aria-modal="true"
           aria-label={`${activeImage.alt} enlarged view`}
@@ -160,7 +183,8 @@ export function LightboxGallery({
               ref={closeButtonRef}
               type="button"
               onClick={closeGallery}
-              className="absolute right-0 top-0 z-20 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-sm text-white/80 transition hover:border-brand-gold hover:text-brand-cream"
+              className="absolute right-0 top-0 z-20 min-h-11 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-sm text-white/80 transition hover:border-brand-gold hover:text-brand-cream focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-offset-0"
+              style={{ touchAction: "manipulation" }}
               aria-label="Close gallery"
             >
               Close

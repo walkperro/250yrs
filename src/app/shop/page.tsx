@@ -5,7 +5,7 @@ import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { products } from "@/lib/products";
+import { setProducts, standardProducts } from "@/lib/products";
 import { absoluteUrl, createMetadata, siteName } from "@/lib/seo";
 import Image from "next/image";
 
@@ -15,78 +15,6 @@ export const metadata: Metadata = createMetadata({
     "Shop the True American Wear 250th Year Collection of patriotic shirts, crewnecks, hoodies, and bundle sets inspired by America’s 250th anniversary.",
   path: "/shop",
 });
-
-const bundleSets = [
-  {
-    title: "Buy the Set",
-    name: "Jacket + Boots",
-    price: 1500,
-    accent: "Featured set",
-    description: [
-      "Only 200,000 made in the world.",
-      "10 year warranty.",
-      "Each set comes with its own patriot number.",
-    ],
-    images: [
-      {
-        src: "/true-american-wear/jacket.jpg",
-        alt: "Premium heritage jacket from the 250th year collection.",
-      },
-      {
-        src: "/true-american-wear/boots.jpg",
-        alt: "Premium leather boots from the 250th year collection.",
-        itemStyle: { backgroundColor: "#d0c7bf" },
-        className: "object-contain object-center scale-[1.12] p-1 transition duration-500 group-hover:scale-[1.15]",
-      },
-    ],
-    primaryHref: "#early-access",
-    primaryLabel: "Join the list",
-    secondaryHref: "/shop/founders-1776-crewneck",
-    secondaryLabel: "View details",
-  },
-  {
-    title: "Buy the Set",
-    name: "Founders Crewneck 1776 + Shoes (White)",
-    price: 350,
-    accent: "Bundle offer",
-    description: ["Only 100,000 made in the world."],
-    images: [
-      {
-        src: "/true-american-wear/flag-sweater-white.jpg",
-        alt: "White Founders 1776 Crewneck with flag graphic.",
-      },
-      {
-        src: "/true-american-wear/shoes-white.jpg",
-        alt: "White shoes paired with the Founders set.",
-      },
-    ],
-    primaryHref: "/shop/founders-1776-crewneck",
-    primaryLabel: "View details",
-    secondaryHref: "#early-access",
-    secondaryLabel: "Join the list",
-  },
-  {
-    title: "Buy the Set",
-    name: "Founders Crewneck 1776 + Shoes (Black)",
-    price: 350,
-    accent: "Bundle offer",
-    description: ["Only 100,000 made in the world."],
-    images: [
-      {
-        src: "/true-american-wear/flag-sweater.jpg",
-        alt: "Black Founders 1776 Crewneck with flag graphic.",
-      },
-      {
-        src: "/true-american-wear/shoes-black.jpg",
-        alt: "Black footwear paired with the Founders set.",
-      },
-    ],
-    primaryHref: "/shop/founders-1776-crewneck",
-    primaryLabel: "Shop now",
-    secondaryHref: "#early-access",
-    secondaryLabel: "Join the list",
-  },
-] as const;
 
 export default function ShopPage() {
   const collectionPageJsonLd = {
@@ -134,7 +62,7 @@ export default function ShopPage() {
             </div>
 
             <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-              {products.map((product) => (
+              {standardProducts.map((product) => (
                 <ProductCard key={product.slug} product={product} />
               ))}
             </div>
@@ -147,19 +75,19 @@ export default function ShopPage() {
               />
 
               <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-                {bundleSets.map((bundle) => (
+                {setProducts.map((bundle) => (
                   <BundleSetCard
-                    key={bundle.name}
-                    title={bundle.title}
+                    key={bundle.slug}
+                    title={bundle.bundleCardTitle ?? "Buy the Set"}
                     name={bundle.name}
                     price={bundle.price}
-                    accent={bundle.accent}
-                    description={bundle.description}
-                    images={bundle.images}
-                    primaryHref={bundle.primaryHref}
-                    primaryLabel={bundle.primaryLabel}
-                    secondaryHref={bundle.secondaryHref}
-                    secondaryLabel={bundle.secondaryLabel}
+                    accent={bundle.bundleCardAccent ?? bundle.badge}
+                    description={bundle.bundleCardDescription ?? [bundle.cardDescription]}
+                    images={bundle.bundleCardImages ?? []}
+                    primaryHref={`/shop/${bundle.slug}`}
+                    primaryLabel="Buy Now"
+                    secondaryHref={`/shop/${bundle.slug}#join-the-list`}
+                    secondaryLabel="Join the List"
                   />
                 ))}
               </div>

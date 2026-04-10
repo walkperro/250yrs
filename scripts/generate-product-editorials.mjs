@@ -32,6 +32,42 @@ const jobs = [
     prompt:
       'Generate a premium realistic lifestyle fashion image for True American Wear. Use public/true-american-wear/maga_history_shirt.jpg as the exact garment reference for the Making Waves In History T-Shirt, preserving the shirt color, front graphic, typography, and artwork placement exactly as shown. Feature a stylish Mexican couple wearing the same shirt, with natural skin detail, believable expressions, and premium Americana styling. Place them in a refined lifestyle setting with clean high-end lighting and an upscale editorial feel, keeping both shirt graphics readable and unobstructed. Compose for ecommerce gallery use in a square frame, realistic cotton texture, believable folds, polished but natural photography, no AI gloss.',
   },
+  {
+    referenceImages: ['public/true-american-wear/jacket.jpg', 'public/true-american-wear/boots.jpg'],
+    filename: 'jacket-boots-woman-editorial.png',
+    prompt:
+      'Create an ultra realistic premium editorial fashion image for True American Wear. Use public/true-american-wear/jacket.jpg and public/true-american-wear/boots.jpg as the exact product references for the Jacket + Boots set, preserving the jacket shape, tone, construction details, and the boot silhouette, leather finish, and overall styling direction accurately. Feature a good-looking white blonde woman styled in the jacket and boots with natural skin texture and a poised, elevated expression. Photograph her in a refined editorial environment with premium luxury Americana mood, clean directional lighting, and strong visibility of both the jacket and boots. Compose for ecommerce gallery use in a square frame, full or three-quarter body, realistic garment texture, believable fit, cinematic but realistic, no AI gloss.',
+  },
+  {
+    referenceImages: ['public/true-american-wear/jacket.jpg', 'public/true-american-wear/boots.jpg'],
+    filename: 'jacket-boots-harley-editorial.png',
+    prompt:
+      'Generate a premium realistic fashion lifestyle image for True American Wear. Use public/true-american-wear/jacket.jpg and public/true-american-wear/boots.jpg as the exact product references for the Jacket + Boots set, preserving the jacket and boot design accurately. Feature the same white blonde woman styled in the jacket and boots beside a Harley-Davidson-style motorcycle in a tasteful aspirational Americana scene. Keep the mood elevated, premium, and authentic rather than cheesy, with clean lighting, realistic skin detail, strong product visibility, and a square ecommerce-ready composition.',
+  },
+  {
+    referenceImages: ['public/true-american-wear/flag-sweater-white.jpg', 'public/true-american-wear/shoes-white.jpg'],
+    filename: 'founders-white-solo-editorial.png',
+    prompt:
+      'Create an ultra realistic premium lifestyle-editorial fashion image for True American Wear. Use public/true-american-wear/flag-sweater-white.jpg and public/true-american-wear/shoes-white.jpg as the exact product references for the Founders Crewneck 1776 + Shoes (White) set, preserving the white crewneck design, graphic placement, and the matching white shoe styling accurately. Feature a white model wearing the full set in a polished premium setting with strong natural posture, realistic skin and fabric detail, and clear visibility of the crewneck and shoes. Compose for square ecommerce gallery use, full or three-quarter body, clean high-end lighting, premium but believable, no AI gloss.',
+  },
+  {
+    referenceImages: ['public/true-american-wear/flag-sweater-white.jpg', 'public/true-american-wear/shoes-white.jpg'],
+    filename: 'founders-white-couple-editorial.png',
+    prompt:
+      'Generate a premium realistic lifestyle image for True American Wear. Use public/true-american-wear/flag-sweater-white.jpg and public/true-american-wear/shoes-white.jpg as the exact product references for the Founders Crewneck 1776 + Shoes (White) set, preserving the product design accurately. Feature a stylish white couple wearing or clearly featuring the set in a natural upscale Americana environment with clean high-end lighting and editorial quality. Keep the image realistic, premium, and ecommerce-usable with the white crewneck and shoes clearly visible in a square frame.',
+  },
+  {
+    referenceImages: ['public/true-american-wear/flag-sweater.jpg', 'public/true-american-wear/shoes-black.jpg'],
+    filename: 'founders-black-solo-editorial.png',
+    prompt:
+      'Create an ultra realistic premium lifestyle-editorial fashion image for True American Wear. Use public/true-american-wear/flag-sweater.jpg and public/true-american-wear/shoes-black.jpg as the exact product references for the Founders Crewneck 1776 + Shoes (Black) set, preserving the black crewneck design, graphic placement, and matching black shoe styling accurately. Feature a model wearing the full black set in a premium lifestyle setting with realistic skin detail, believable fabric texture, and strong product visibility. Compose for a square ecommerce gallery frame with clean directional lighting, elevated Americana mood, and no AI gloss.',
+  },
+  {
+    referenceImages: ['public/true-american-wear/flag-sweater.jpg', 'public/true-american-wear/shoes-black.jpg'],
+    filename: 'founders-black-couple-editorial.png',
+    prompt:
+      'Generate a premium realistic lifestyle image for True American Wear. Use public/true-american-wear/flag-sweater.jpg and public/true-american-wear/shoes-black.jpg as the exact product references for the Founders Crewneck 1776 + Shoes (Black) set, preserving the product design accurately. Feature a stylish Cuban couple wearing or clearly featuring the black set in a refined premium setting with realistic skin detail, natural expressions, and strong visibility of the crewneck and shoes. Compose for square ecommerce gallery use with elevated lighting, believable styling, and no AI gloss.',
+  },
 ];
 
 function parseEnv(contents) {
@@ -113,13 +149,14 @@ async function main() {
       continue;
     } catch {}
 
-    const referencePart = await loadReferencePart(job.referenceImage);
+    const referencePaths = job.referenceImages ?? [job.referenceImage];
+    const referenceParts = await Promise.all(referencePaths.map(loadReferencePart));
 
     process.stdout.write(`Generating ${job.filename}...\n`);
 
     const response = await generateWithRetry(
       ai,
-      [{ text: job.prompt }, referencePart],
+      [{ text: job.prompt }, ...referenceParts],
       job.filename,
     );
 

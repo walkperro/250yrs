@@ -184,11 +184,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     </div>
                   </div>
 
-                  <FoundersIntakeForm
-                    productName={product.name}
-                    title="Join the list for this piece"
-                    description="Claim early access and first notice when this release lands."
-                  />
+                  <div id="join-the-list">
+                    <FoundersIntakeForm
+                      productName={product.name}
+                      title="Join the list for this piece"
+                      description="Claim early access and first notice when this release lands."
+                    />
+                  </div>
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="rounded-[1.5rem] border border-white/8 bg-white/5 p-5">

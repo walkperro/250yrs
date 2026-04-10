@@ -71,4 +71,16 @@ export const lifestyleBySlug = {
     lifestyle: "/campaign/true-american-wear/nobel-peace-sweater-chinese-male-editorial.jpg",
     detail: "/campaign/true-american-wear/nobel-peace-sweater-puerto-rican-female-editorial.jpg",
   },
+  "jacket-boots": {
+    lifestyle: "/campaign/true-american-wear/jacket-boots-woman-editorial.jpg",
+    detail: "/campaign/true-american-wear/jacket-boots-harley-editorial.jpg",
+  },
+  "founders-crewneck-1776-shoes-white": {
+    lifestyle: "/campaign/true-american-wear/founders-white-solo-editorial.jpg",
+    detail: "/campaign/true-american-wear/founders-white-couple-editorial.jpg",
+  },
+  "founders-crewneck-1776-shoes-black": {
+    lifestyle: "/campaign/true-american-wear/founders-black-solo-editorial.jpg",
+    detail: "/campaign/true-american-wear/founders-black-couple-editorial.jpg",
+  },
 } as const;
