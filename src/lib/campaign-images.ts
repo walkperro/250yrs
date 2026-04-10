@@ -25,9 +25,9 @@ export const campaignImages = {
 
 export const campaignGallery = [
   {
-    title: "Founders on the road",
+    title: "Built for the Open Road",
     copy: "Built for open roads and everyday wear. Structured to hold its shape from morning through night.",
-    image: campaignImages.foundersLifestyleB,
+    image: campaignImages.heroHoodie,
     imageClassName: "object-cover object-[center_24%]",
   },
   {
