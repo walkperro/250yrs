@@ -52,8 +52,8 @@ export const campaignGallery = [
 
 export const lifestyleBySlug = {
   "making-waves-in-history-t-shirt": {
-    lifestyle: "/true-american-wear/maga_history_shirt.jpg",
-    detail: "/true-american-wear/maga_history_shirt.jpg",
+    lifestyle: "/campaign/true-american-wear/making-waves-female-editorial.jpg",
+    detail: "/campaign/true-american-wear/making-waves-couple-editorial.jpg",
   },
   "founders-1776-crewneck": {
     lifestyle: campaignImages.foundersLifestyleA,
@@ -68,7 +68,7 @@ export const lifestyleBySlug = {
     detail: campaignImages.coupleRedlineHoodie,
   },
   "45-47-tribute-crewneck": {
-    lifestyle: campaignImages.foundersStudio,
-    detail: campaignImages.heroHoodie,
+    lifestyle: "/campaign/true-american-wear/nobel-peace-sweater-chinese-male-editorial.jpg",
+    detail: "/campaign/true-american-wear/nobel-peace-sweater-puerto-rican-female-editorial.jpg",
   },
 } as const;

@@ -30,32 +30,38 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   }
 
   const path = `/shop/${product.slug}`;
+  const title = product.seoTitle ?? product.name;
+  const description = product.seoDescription ?? product.description;
+  const ogImage = product.gallery?.[0] ?? {
+    src: product.image,
+    alt: product.imageAlt,
+  };
 
   return {
-    title: product.name,
-    description: product.description,
+    title,
+    description,
     alternates: {
       canonical: path,
     },
     openGraph: {
-      title: buildTitle(product.name),
-      description: product.description,
+      title: buildTitle(title),
+      description,
       url: path,
       siteName: brand.name,
       locale: "en_US",
       type: "website",
       images: [
         {
-          url: product.image,
-          alt: product.imageAlt,
+          url: ogImage.src,
+          alt: ogImage.alt,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: buildTitle(product.name),
-      description: product.description,
-      images: [product.image],
+      title: buildTitle(title),
+      description,
+      images: [ogImage.src],
     },
   };
 }
@@ -70,12 +76,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const supportingAssets = lifestyleBySlug[slug as keyof typeof lifestyleBySlug];
   const showDetailCards = slug !== "founders-1776-crewneck";
+  const gallery = product.gallery ?? [
+    {
+      src: product.image,
+      alt: product.imageAlt,
+    },
+    {
+      src: supportingAssets.lifestyle,
+      alt: `${product.name} lifestyle image`,
+    },
+    {
+      src: supportingAssets.detail,
+      alt: `${product.name} detail image`,
+    },
+  ];
+  const description = product.seoDescription ?? product.description;
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    description: product.description,
-    image: [absoluteUrl(product.image)],
+    description,
+    image: gallery.map((image) => absoluteUrl(image.src)),
     brand: {
       "@type": "Brand",
       name: brand.name,
@@ -100,8 +121,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="section-shell grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <div className="space-y-5">
               <LightboxImage
-                src={product.image}
-                alt={product.imageAlt}
+                src={gallery[0].src}
+                alt={gallery[0].alt}
                 priority
                 containerClassName="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-brand-gold/15 bg-black/30 shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
                 imageClassName="object-cover"
@@ -109,14 +130,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <LightboxImage
-                  src={supportingAssets.lifestyle}
-                  alt={`${product.name} lifestyle image`}
+                  src={gallery[1].src}
+                  alt={gallery[1].alt}
                   containerClassName="relative aspect-square overflow-hidden rounded-[1.6rem] border border-white/8 bg-white/5"
                   imageClassName="object-cover"
                 />
                 <LightboxImage
-                  src={supportingAssets.detail}
-                  alt={`${product.name} detail image`}
+                  src={gallery[2].src}
+                  alt={gallery[2].alt}
                   containerClassName="relative aspect-square overflow-hidden rounded-[1.6rem] border border-white/8 bg-white/5"
                   imageClassName="object-cover"
                 />
@@ -183,7 +204,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         Built for
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/72">
-                        A darker American wardrobe with stronger graphics, cleaner
+                        A refined American wardrobe with stronger graphics, cleaner
                         lines, and heavier textures.
                       </p>
                     </div>

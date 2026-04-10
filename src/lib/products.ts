@@ -12,6 +12,12 @@ export type Product = {
   releaseNote: string;
   materials: string[];
   details: string[];
+  seoTitle?: string;
+  seoDescription?: string;
+  gallery?: Array<{
+    src: string;
+    alt: string;
+  }>;
 };
 
 export const products: Product[] = [
@@ -36,6 +42,23 @@ export const products: Product[] = [
       "Standard fit",
       "Designed for clean standalone wear",
       "Placed near the top of the collection",
+    ],
+    seoTitle: "Making Waves In History T-Shirt",
+    seoDescription:
+      "Shop the Making Waves In History T-Shirt from True American Wear, a limited-run patriotic graphic tee with a bold front print and clean everyday fit.",
+    gallery: [
+      {
+        src: "/true-american-wear/maga_history_shirt.jpg",
+        alt: "Making Waves In History T-Shirt product image.",
+      },
+      {
+        src: "/campaign/true-american-wear/making-waves-female-editorial.jpg",
+        alt: "Light skin Black female model wearing Making Waves in History T-shirt",
+      },
+      {
+        src: "/campaign/true-american-wear/making-waves-couple-editorial.jpg",
+        alt: "Mexican couple wearing Making Waves in History T-shirt",
+      },
     ],
   },
   {
@@ -91,7 +114,7 @@ export const products: Product[] = [
     cardDescription:
       "A striped summer release that brings color to the collection without losing the edge.",
     description:
-      "A red-and-cream striped shirt with a centered 250 Years mark and anniversary numerals, cut to bring contrast into an otherwise darker lineup.",
+      "A red-and-cream striped shirt with a centered 250 Years mark and anniversary numerals, designed to add a sharper pop of color to the collection.",
     badge: "Summer release",
     releaseNote: "Summer release piece.",
     materials: ["Midweight jersey knit", "All-over striped print", "Soft hand feel for everyday wear"],
@@ -99,20 +122,37 @@ export const products: Product[] = [
   },
   {
     slug: "45-47-tribute-crewneck",
-    name: "Trump Nobel Peace Prize Sweater",
-    shortName: "45 / 47 Crewneck",
-    subtitle: "Additional statement patriotic crewneck",
+    name: "45-47 Tribute Crewneck",
+    shortName: "45-47 Crewneck",
+    subtitle: "Commemorative patriotic crewneck",
     price: 150,
     image: "/true-american-wear/nobel-peace-sweater.jpg",
-    imageAlt: "Gray tribute crewneck with 45 47 patriotic graphic.",
+    imageAlt: "45-47 Tribute Crewneck product image.",
     cardDescription:
-      "A niche statement graphic reserved for customers who want the most direct commemorative piece.",
+      "A commemorative crewneck with a bold tribute graphic and a clean heavyweight presentation.",
     description:
-      "A statement piece honoring our President's leadership, strength, and the conversation around him deserving a Nobel Peace Prize.",
+      "A commemorative gray crewneck with a bold 45-47 tribute graphic, heavyweight feel, and a statement look built for the collection.",
     badge: "Statement Piece",
     releaseNote: "Limited-run statement piece.",
     materials: ["Midweight fleece", "Large front commemorative graphic", "Soft rib finishes"],
     details: ["Secondary product slot", "Intentional limited placement", "Merchandised below the core assortment"],
+    seoTitle: "45-47 Tribute Crewneck",
+    seoDescription:
+      "Shop the 45-47 Tribute Crewneck from True American Wear, a commemorative patriotic crewneck with a bold statement graphic and heavyweight fleece feel.",
+    gallery: [
+      {
+        src: "/true-american-wear/nobel-peace-sweater.jpg",
+        alt: "45-47 Tribute Crewneck product image.",
+      },
+      {
+        src: "/campaign/true-american-wear/nobel-peace-sweater-chinese-male-editorial.jpg",
+        alt: "Chinese male model wearing the 45-47 Tribute Crewneck",
+      },
+      {
+        src: "/campaign/true-american-wear/nobel-peace-sweater-puerto-rican-female-editorial.jpg",
+        alt: "Puerto Rican female model wearing the 45-47 Tribute Crewneck",
+      },
+    ],
   },
 ];
 
