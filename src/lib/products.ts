@@ -19,7 +19,7 @@ export const products: Product[] = [
     slug: "making-waves-in-history-t-shirt",
     name: "Making Waves In History T-Shirt",
     shortName: "Making Waves Tee",
-    subtitle: "Limited-run commemorative tee",
+    subtitle: "Limited-run MAGA tee",
     price: 100,
     image: "/true-american-wear/maga_history_shirt.jpg",
     imageAlt: "Making Waves In History T-Shirt product image.",
@@ -29,7 +29,7 @@ export const products: Product[] = [
     releaseNote: "Limited run — only 150,000 made.",
     materials: [
       "Premium cotton jersey",
-      "Full-front commemorative graphic",
+      "Full-front MAGA graphic",
       "Soft hand feel with structured drape",
     ],
     details: [
