@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { BundleSetCard } from "@/components/bundle-set-card";
 import { FoundersIntakeForm } from "@/components/founders-intake-form";
 import { ProductCard } from "@/components/product-card";
@@ -5,7 +6,15 @@ import { SectionHeading } from "@/components/section-heading";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { products } from "@/lib/products";
+import { absoluteUrl, createMetadata, siteName } from "@/lib/seo";
 import Image from "next/image";
+
+export const metadata: Metadata = createMetadata({
+  title: "Shop Patriotic Shirts, Crewnecks & Hoodies",
+  description:
+    "Shop the True American Wear 250th Year Collection of patriotic shirts, crewnecks, hoodies, and bundle sets inspired by America’s 250th anniversary.",
+  path: "/shop",
+});
 
 const bundleSets = [
   {
@@ -80,13 +89,27 @@ const bundleSets = [
 ] as const;
 
 export default function ShopPage() {
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${siteName} Shop`,
+    url: absoluteUrl("/shop"),
+    description:
+      "Shop the True American Wear 250th Year Collection of patriotic shirts, crewnecks, hoodies, and bundle sets inspired by America’s 250th anniversary.",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
       <SiteHeader />
       <main className="pb-20 pt-10">
         <section className="container-shell">
           <div className="section-shell space-y-8">
             <SectionHeading
+              as="h1"
               eyebrow="250th Year Collection"
               title="The 250th Year Collection starts here."
               description="Start with the Founders Crewneck, then build it out with the Eagle Hoodie and Redline Shirt."

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -6,7 +7,9 @@ import { LightboxImage } from "@/components/lightbox-image";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { lifestyleBySlug } from "@/lib/campaign-images";
+import { brand } from "@/lib/brand";
 import { formatPrice, getProductBySlug, products } from "@/lib/products";
+import { absoluteUrl, buildTitle } from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -14,6 +17,47 @@ type ProductPageProps = {
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
+}
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
+
+  if (!product) {
+    return {
+      title: buildTitle("Product"),
+    };
+  }
+
+  const path = `/shop/${product.slug}`;
+
+  return {
+    title: product.name,
+    description: product.description,
+    alternates: {
+      canonical: path,
+    },
+    openGraph: {
+      title: buildTitle(product.name),
+      description: product.description,
+      url: path,
+      siteName: brand.name,
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: product.image,
+          alt: product.imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: buildTitle(product.name),
+      description: product.description,
+      images: [product.image],
+    },
+  };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
@@ -26,9 +70,30 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const supportingAssets = lifestyleBySlug[slug as keyof typeof lifestyleBySlug];
   const showDetailCards = slug !== "founders-1776-crewneck";
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: [absoluteUrl(product.image)],
+    brand: {
+      "@type": "Brand",
+      name: brand.name,
+    },
+    offers: {
+      "@type": "Offer",
+      price: product.price,
+      priceCurrency: "USD",
+      url: absoluteUrl(`/shop/${product.slug}`),
+    },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <SiteHeader />
       <main className="pb-20 pt-10">
         <section className="container-shell">

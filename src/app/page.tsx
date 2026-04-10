@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,13 +10,38 @@ import { SiteHeader } from "@/components/site-header";
 import { brand } from "@/lib/brand";
 import { campaignGallery, campaignImages } from "@/lib/campaign-images";
 import { featuredProducts } from "@/lib/products";
+import { absoluteUrl, createMetadata, siteName } from "@/lib/seo";
+
+export const metadata: Metadata = createMetadata({
+  title: "Patriotic Apparel for America’s 250th Anniversary",
+  description:
+    "Shop premium patriotic apparel from True American Wear, including heritage-inspired shirts, crewnecks, hoodies, and bundle sets celebrating America’s 250th anniversary.",
+  path: "/",
+});
 
 export default function Home() {
   const campaignSpotlight = campaignGallery[0];
   const campaignCards = campaignGallery.slice(1);
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `${siteName} Homepage`,
+    url: absoluteUrl("/"),
+    description:
+      "Shop premium patriotic apparel from True American Wear, including heritage-inspired shirts, crewnecks, hoodies, and bundle sets celebrating America’s 250th anniversary.",
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteName,
+      url: absoluteUrl("/"),
+    },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <SiteHeader />
 
       <main className="pb-16 sm:pb-20">
