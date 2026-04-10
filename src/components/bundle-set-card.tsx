@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 import { LightboxGallery } from "@/components/lightbox-gallery";
 import { formatPrice } from "@/lib/products";
@@ -8,6 +9,7 @@ type BundleImage = {
   alt: string;
   className?: string;
   itemClassName?: string;
+  itemStyle?: CSSProperties;
 };
 
 type BundleSetCardProps = {

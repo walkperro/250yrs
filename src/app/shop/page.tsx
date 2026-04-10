@@ -26,7 +26,7 @@ const bundleSets = [
       {
         src: "/true-american-wear/boots.jpg",
         alt: "Premium leather boots from the 250th year collection.",
-        itemClassName: "bg-[#d0c7bf]",
+        itemStyle: { backgroundColor: "#d0c7bf" },
         className: "object-contain object-center scale-[1.12] p-1 transition duration-500 group-hover:scale-[1.15]",
       },
     ],
