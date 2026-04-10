@@ -25,26 +25,26 @@ export const campaignImages = {
 
 export const campaignGallery = [
   {
-    title: "Founders at dusk",
-    copy: "Built for late light, open roads, and everyday wear. Designed to hold its shape from day into night.",
+    title: "Founders on the road",
+    copy: "Built for open roads and everyday wear. Structured to hold its shape from morning through night.",
     image: campaignImages.foundersLifestyleB,
     imageClassName: "object-cover object-[center_24%]",
   },
   {
-    title: "Truckside standard",
+    title: "Truckside Wear",
     copy: "Heavyweight layers built to hold their shape — designed for denim, workwear, and everyday wear on and off the road.",
     image: campaignImages.hoodieLifestyle,
     imageClassName: "object-cover object-[center_18%]",
   },
   {
-    title: "Roadside at dusk",
+    title: "Roadside Standard",
     copy: "Clean graphics and structured fits made for long days, late nights, and everything after.",
     image: campaignImages.coupleRedlineHoodie,
     imageClassName: "object-cover object-[center_18%]",
   },
   {
-    title: "Pasture walk",
-    copy: "Classic silhouettes built for cooler air, boots, and easy wear from daylight into evening.",
+    title: "Out in the Field",
+    copy: "Classic pieces built for everyday wear.",
     image: campaignImages.coupleFoundersHoodie,
     imageClassName: "object-cover object-[center_20%]",
   },

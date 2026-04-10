@@ -8,10 +8,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { brand } from "@/lib/brand";
 import { campaignGallery, campaignImages } from "@/lib/campaign-images";
-import { featuredProducts, formatPrice } from "@/lib/products";
+import { featuredProducts } from "@/lib/products";
 
 export default function Home() {
-  const leadProduct = featuredProducts[0];
   const campaignSpotlight = campaignGallery[0];
   const campaignCards = campaignGallery.slice(1);
 
@@ -133,78 +132,19 @@ export default function Home() {
           <div className="space-y-8">
             <SectionHeading
               eyebrow="Featured collection"
-              title="The 250th Year Collection starts with the pieces that stand out most."
+              title="The 250th Year Collection is defined by its strongest pieces."
               description="Start with the Founders Crewneck, layer in the Eagle Hoodie, and finish with the Redline Shirt for warmer days."
             />
 
-            <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-              <div className="section-shell relative overflow-hidden p-4 sm:p-5 lg:p-6">
-                <div className="grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">
-                  <div className="relative min-h-[420px] overflow-hidden rounded-[1rem] border border-white/8 bg-black/30">
-                    <Image
-                      src={campaignImages.heroHoodie}
-                      alt="Model wearing the Liberty Eagle Hoodie beside a black truck"
-                      fill
-                      quality={94}
-                      sizes="(min-width: 1280px) 38vw, (min-width: 1024px) 46vw, 100vw"
-                      className="object-cover object-[center_18%]"
-                    />
-                  </div>
-
-                  <div className="grid gap-4">
-                    <div className="p-1">
-                      <p className="eyebrow">Featured piece</p>
-                      <h3 className="mt-2 font-display text-3xl text-brand-cream">
-                        {leadProduct.name}
-                      </h3>
-                      <p className="mt-3 text-sm leading-6 text-white/66">
-                        {leadProduct.cardDescription}
-                      </p>
-                    </div>
-
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="p-1">
-                        <p className="eyebrow">Price</p>
-                        <p className="mt-2 text-3xl font-semibold text-brand-cream">
-                          {formatPrice(leadProduct.price)}
-                        </p>
-                        <p className="mt-2 text-sm text-white/58">
-                          Heavyweight fleece with a cleaner front read.
-                        </p>
-                      </div>
-                      <div className="p-1">
-                        <p className="eyebrow">Fabric & finish</p>
-                        <p className="mt-2 text-sm leading-6 text-white/64">
-                          Brushed interior fleece, firm rib trim, and structure
-                          that holds its shape through the day.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="relative min-h-[250px] overflow-hidden">
-                      <Image
-                        src={campaignImages.foundersStudio}
-                        alt="Founders 1776 Crewneck studio campaign image"
-                        fill
-                        quality={92}
-                        sizes="(min-width: 1280px) 26vw, (min-width: 1024px) 34vw, 100vw"
-                        className="object-cover object-center"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-6">
-                {featuredProducts.map((product) => (
-                  <ProductCard
-                    key={product.slug}
-                    product={product}
-                    interactiveImage={false}
-                    imageSizes="(min-width: 1280px) 28vw, (min-width: 1024px) 34vw, 100vw"
-                  />
-                ))}
-              </div>
+            <div className="grid gap-6">
+              {featuredProducts.map((product) => (
+                <ProductCard
+                  key={product.slug}
+                  product={product}
+                  interactiveImage={false}
+                  imageSizes="(min-width: 1280px) 28vw, (min-width: 1024px) 34vw, 100vw"
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -217,8 +157,8 @@ export default function Home() {
           <div className="section-shell space-y-8 p-4 sm:space-y-9 sm:p-5 lg:p-6">
             <SectionHeading
               eyebrow="The campaign"
-              title="Late light. Open road. Built to wear anywhere."
-              description="This campaign shows how the collection is meant to be worn — out on the road, in denim, and through the last light of the day."
+              title="Open road. End of day. Built to wear anywhere."
+              description="Made for real wear — in denim, on the road, and long after the holiday ends."
             />
 
             <div className="grid gap-6 xl:grid-cols-[1.14fr_0.86fr]">
