@@ -51,6 +51,10 @@ export const campaignGallery = [
 ] as const;
 
 export const lifestyleBySlug = {
+  "making-waves-in-history-t-shirt": {
+    lifestyle: "/true-american-wear/maga_history_shirt.jpg",
+    detail: "/true-american-wear/maga_history_shirt.jpg",
+  },
   "founders-1776-crewneck": {
     lifestyle: campaignImages.foundersLifestyleA,
     detail: campaignImages.foundersDetail,

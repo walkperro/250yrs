@@ -16,6 +16,29 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    slug: "making-waves-in-history-t-shirt",
+    name: "Making Waves In History T-Shirt",
+    shortName: "Making Waves Tee",
+    subtitle: "Limited-run commemorative tee",
+    price: 100,
+    image: "/true-american-wear/maga_history_shirt.jpg",
+    imageAlt: "Making Waves In History T-Shirt product image.",
+    cardDescription: "Limited run — only 150,000 made.",
+    description: "Limited run — only 150,000 made.",
+    badge: "NEW RELEASE",
+    releaseNote: "Limited run — only 150,000 made.",
+    materials: [
+      "Premium cotton jersey",
+      "Full-front commemorative graphic",
+      "Soft hand feel with structured drape",
+    ],
+    details: [
+      "Standard fit",
+      "Designed for clean standalone wear",
+      "Placed near the top of the collection",
+    ],
+  },
+  {
     slug: "founders-1776-crewneck",
     name: "Founders 1776 Crewneck",
     shortName: "1776 Crewneck",
