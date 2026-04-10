@@ -7,6 +7,7 @@ type BundleImage = {
   src: string;
   alt: string;
   className?: string;
+  itemClassName?: string;
 };
 
 type BundleSetCardProps = {

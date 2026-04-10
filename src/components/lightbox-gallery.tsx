@@ -7,6 +7,7 @@ type GalleryImage = {
   src: string;
   alt: string;
   className?: string;
+  itemClassName?: string;
 };
 
 type LightboxGalleryProps = {
@@ -107,7 +108,7 @@ export function LightboxGallery({
             }}
             type="button"
             onClick={() => openGallery(index)}
-            className={`${itemClassName} block w-full cursor-zoom-in text-left transition duration-300 hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-offset-0`}
+            className={`${itemClassName} ${image.itemClassName ?? ""} block w-full cursor-zoom-in text-left transition duration-300 hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-offset-0`}
             aria-label={`Open gallery image ${index + 1} of ${images.length}: ${image.alt}`}
           >
             <Image
