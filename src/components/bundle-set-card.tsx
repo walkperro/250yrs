@@ -1,11 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import { LightboxGallery } from "@/components/lightbox-gallery";
 import { formatPrice } from "@/lib/products";
 
 type BundleImage = {
   src: string;
   alt: string;
+  className?: string;
 };
 
 type BundleSetCardProps = {
@@ -35,23 +36,13 @@ export function BundleSetCard({
 }: BundleSetCardProps) {
   return (
     <article className="product-card group flex h-full flex-col overflow-hidden">
-      <div className="grid grid-cols-2 gap-3 p-5 pb-0 sm:p-6 sm:pb-0">
-        {images.map((image) => (
-          <div
-            key={image.src}
-            className="relative aspect-[4/5] overflow-hidden rounded-[1rem] border border-white/8 bg-black/30"
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              quality={90}
-              sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 22vw, (min-width: 768px) 34vw, 50vw"
-              className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
-            />
-          </div>
-        ))}
-      </div>
+      <LightboxGallery
+        images={images}
+        sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 22vw, (min-width: 768px) 34vw, 50vw"
+        gridClassName="grid grid-cols-2 gap-3 p-5 pb-0 sm:p-6 sm:pb-0"
+        itemClassName="relative aspect-[4/5] overflow-hidden rounded-[1rem] border border-white/8 bg-black/30"
+        defaultImageClassName="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+      />
 
       <div className="flex flex-1 flex-col space-y-4 p-5 sm:p-6">
         <div className="space-y-3">
