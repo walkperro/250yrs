@@ -10,14 +10,36 @@ import { SiteHeader } from "@/components/site-header";
 import { brand } from "@/lib/brand";
 import { campaignGallery, campaignImages } from "@/lib/campaign-images";
 import { featuredProducts } from "@/lib/products";
-import { absoluteUrl, createMetadata, siteName } from "@/lib/seo";
+import { absoluteUrl, defaultOgImage, siteName } from "@/lib/seo";
 
-export const metadata: Metadata = createMetadata({
-  title: "Patriotic Apparel for America’s 250th Anniversary",
-  description:
-    "Shop premium patriotic apparel from True American Wear, including heritage-inspired shirts, crewnecks, hoodies, and bundle sets celebrating America’s 250th anniversary.",
-  path: "/",
-});
+const homepageTitle = "True American Wear | 250th Year Collection";
+const homepageDescription =
+  "Shop premium patriotic apparel from True American Wear, including heritage-inspired shirts, crewnecks, hoodies, and bundle sets celebrating America’s 250th anniversary.";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: homepageTitle,
+  },
+  description: homepageDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: homepageTitle,
+    description: homepageDescription,
+    url: "/",
+    siteName,
+    locale: "en_US",
+    type: "website",
+    images: [defaultOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homepageTitle,
+    description: homepageDescription,
+    images: [defaultOgImage.url],
+  },
+};
 
 export default function Home() {
   const campaignSpotlight = campaignGallery[0];
@@ -27,8 +49,7 @@ export default function Home() {
     "@type": "WebPage",
     name: `${siteName} Homepage`,
     url: absoluteUrl("/"),
-    description:
-      "Shop premium patriotic apparel from True American Wear, including heritage-inspired shirts, crewnecks, hoodies, and bundle sets celebrating America’s 250th anniversary.",
+    description: homepageDescription,
     isPartOf: {
       "@type": "WebSite",
       name: siteName,
