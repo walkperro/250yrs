@@ -103,8 +103,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
     },
     offers: {
       "@type": "Offer",
-      price: product.price,
+      price: product.price.toString(),
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
       url: absoluteUrl(`/shop/${product.slug}`),
     },
   };
