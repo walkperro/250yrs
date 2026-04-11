@@ -45,6 +45,18 @@ const jobs = [
       'Generate a premium realistic fashion lifestyle image for True American Wear. Use public/true-american-wear/jacket.jpg and public/true-american-wear/boots.jpg as the exact product references for the Jacket + Boots set, preserving the jacket and boot design accurately. Feature the same white blonde woman styled in the jacket and boots beside a Harley-Davidson-style motorcycle in a tasteful aspirational Americana scene. Keep the mood elevated, premium, and authentic rather than cheesy, with clean lighting, realistic skin detail, strong product visibility, and a square ecommerce-ready composition.',
   },
   {
+    referenceImages: ['public/true-american-wear/jacket.jpg', 'public/true-american-wear/boots.jpg'],
+    filename: 'jacket-boots-male-editorial.png',
+    prompt:
+      'Create an ultra realistic premium editorial fashion image for True American Wear. Use public/true-american-wear/jacket.jpg and public/true-american-wear/boots.jpg as the exact product references for the Jacket + Boots set, preserving the jacket shape, leather finish, graphic details, and the boot silhouette and finish accurately. Feature a good-looking man wearing the jacket and boots with strong masculine styling, clean grooming, realistic skin texture, and a confident aspirational posture. Photograph him in a refined indoor editorial setting with premium luxury Americana mood, soft directional light, clear visibility of both jacket and boots, and a square ecommerce-ready composition. Keep it polished, realistic, and product-forward with no AI gloss.',
+  },
+  {
+    referenceImages: ['public/true-american-wear/jacket.jpg', 'public/true-american-wear/boots.jpg'],
+    filename: 'jacket-boots-male-lifestyle.png',
+    prompt:
+      'Generate a premium realistic Americana lifestyle image for True American Wear. Use public/true-american-wear/jacket.jpg and public/true-american-wear/boots.jpg as the exact product references for the Jacket + Boots set, preserving the product design accurately. Feature a stylish man wearing the jacket and boots in a different pose and setting from the editorial shot, ideally outdoors or in a grounded Americana environment, while keeping the product clearly visible and the mood elevated rather than generic. Use clean premium lighting, realistic skin and leather texture, strong masculine styling, and a square ecommerce-usable composition.',
+  },
+  {
     referenceImages: ['public/true-american-wear/flag-sweater-white.jpg', 'public/true-american-wear/shoes-white.jpg'],
     filename: 'founders-white-solo-editorial.png',
     prompt:

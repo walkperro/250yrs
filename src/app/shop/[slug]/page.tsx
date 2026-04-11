@@ -128,20 +128,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 imageClassName="object-cover"
               />
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                <LightboxImage
-                  src={gallery[1].src}
-                  alt={gallery[1].alt}
-                  containerClassName="relative aspect-square overflow-hidden rounded-[1.6rem] border border-white/8 bg-white/5"
-                  imageClassName="object-cover"
-                />
-                <LightboxImage
-                  src={gallery[2].src}
-                  alt={gallery[2].alt}
-                  containerClassName="relative aspect-square overflow-hidden rounded-[1.6rem] border border-white/8 bg-white/5"
-                  imageClassName="object-cover"
-                />
-              </div>
+              {gallery.length > 1 ? (
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {gallery.slice(1).map((image) => (
+                    <LightboxImage
+                      key={image.src}
+                      src={image.src}
+                      alt={image.alt}
+                      containerClassName="relative aspect-square overflow-hidden rounded-[1.6rem] border border-white/8 bg-white/5"
+                      imageClassName="object-cover"
+                    />
+                  ))}
+                </div>
+              ) : null}
             </div>
 
             <div className="space-y-8">

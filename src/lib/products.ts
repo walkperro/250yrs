@@ -144,16 +144,16 @@ export const products: Product[] = [
     image: "/true-american-wear/nobel-peace-sweater.jpg",
     imageAlt: "45-47 Tribute Crewneck product image.",
     cardDescription:
-      "A commemorative crewneck with a bold tribute graphic and a clean heavyweight presentation.",
+      "A bold statement piece with a striking patriotic graphic and a clean, premium finish.",
     description:
-      "A commemorative gray crewneck with a bold 45-47 tribute graphic, heavyweight feel, and a statement look built for the collection.",
+      "Nobel Peace Prize Tribute Crewneck. A bold statement piece honoring a defining moment in history. This heavyweight crewneck features a striking patriotic graphic with a clean, premium finish. Built for those who wear conviction, not just clothing.",
     badge: "Statement Piece",
     releaseNote: "Limited-run statement piece.",
-    materials: ["Midweight fleece", "Large front commemorative graphic", "Soft rib finishes"],
+    materials: ["Midweight fleece", "Large front patriotic graphic", "Soft rib finishes"],
     details: ["Secondary product slot", "Intentional limited placement", "Merchandised below the core assortment"],
     seoTitle: "45-47 Tribute Crewneck",
     seoDescription:
-      "Shop the 45-47 Tribute Crewneck from True American Wear, a commemorative patriotic crewneck with a bold statement graphic and heavyweight fleece feel.",
+      "Nobel Peace Prize Tribute Crewneck. A bold statement piece honoring a defining moment in history. This heavyweight crewneck features a striking patriotic graphic with a clean, premium finish. Built for those who wear conviction, not just clothing.",
     gallery: [
       {
         src: "/true-american-wear/nobel-peace-sweater.jpg",
@@ -175,7 +175,7 @@ export const products: Product[] = [
     shortName: "Jacket + Boots Set",
     subtitle: "Heritage outerwear and boot set",
     price: 1500,
-    image: "/campaign/true-american-wear/jacket-boots-set-product.jpg",
+    image: "/campaign/true-american-wear/jacket-boots-set-product-refined.jpg",
     imageAlt: "Jacket and boots set product image.",
     cardDescription:
       "A premium heritage jacket and leather boots paired together as a complete 250th year set.",
@@ -191,12 +191,20 @@ export const products: Product[] = [
       "Shop the Jacket + Boots set from True American Wear, a premium Americana pairing built around a heritage jacket and leather boots.",
     gallery: [
       {
-        src: "/campaign/true-american-wear/jacket-boots-set-product.jpg",
+        src: "/campaign/true-american-wear/jacket-boots-set-product-refined.jpg",
         alt: "Jacket + Boots set product image.",
       },
       {
         src: "/campaign/true-american-wear/jacket-boots-woman-editorial.jpg",
         alt: "Blonde woman styled in the Jacket + Boots set",
+      },
+      {
+        src: "/campaign/true-american-wear/jacket-boots-male-editorial.jpg",
+        alt: "Male model wearing True American Wear jacket and boots",
+      },
+      {
+        src: "/campaign/true-american-wear/jacket-boots-male-lifestyle.jpg",
+        alt: "Male lifestyle image wearing True American Wear jacket and boots",
       },
       {
         src: "/campaign/true-american-wear/jacket-boots-harley-editorial.jpg",
